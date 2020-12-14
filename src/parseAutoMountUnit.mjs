@@ -1,5 +1,7 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
+import sysdWants from './sysdWants';
+
 
 const EX = function parseAutoMountUnit(bas) {
   const { mustPop } = bas;
@@ -14,7 +16,12 @@ const EX = function parseAutoMountUnit(bas) {
       TimeoutIdleSec: (mustPop('str | num', 'idleSec', '') || 0),
     },
   });
-  return amu;
+
+  return {
+    autoMountUnit: amu,
+    autoMountEnable: sysdWants('local-fs.target',
+      mustPop('bool', 'mountOnDemand', false), amu),
+  };
 };
 
 

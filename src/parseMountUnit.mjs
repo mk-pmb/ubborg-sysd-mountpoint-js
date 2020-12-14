@@ -2,6 +2,8 @@
 
 import compileMountOpts from 'compile-linux-mount-options-from-dict-pmb';
 
+import sysdWants from './sysdWants';
+
 
 const EX = function parseMountUnit(bas) {
   const { mustPop, devPath, mptPath } = bas;
@@ -22,7 +24,12 @@ const EX = function parseMountUnit(bas) {
     },
   });
 
-  return mountUnit;
+  return {
+    mountPointDir: { path: bas.mptPath, mimeType: 'dirOrMounted' },
+    mountUnit,
+    devDetect: sysdWants(bas.devId + '.device',
+      mustPop('bool', 'mountOnDetect', false), mountUnit),
+  };
 };
 
 

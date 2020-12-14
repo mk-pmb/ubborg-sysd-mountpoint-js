@@ -29,7 +29,9 @@ ubborg bundle, and the `admFile`s are requested on its behalf.
 In this case, the resulting promise will be returned instead, and the
 specs array will be stored on that promise in the `specs` property.
 
-Details objects support these properties, most of them optional:
+Details objects support the properties listed below, most of them optional.
+Some options are only understood if another option is active. The dependent
+options are listed as sub-bullets of the option that enables them.
 
 * `device` (required): Path to the disk device.
 * `mountAt`: Absolute path where to mount the device.
