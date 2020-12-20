@@ -1,8 +1,7 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
 import compileMountOpts from 'compile-linux-mount-options-from-dict-pmb';
-
-import sysdWants from './sysdWants';
+import sysdWants from 'ubborg-sysd-wants';
 
 
 const EX = function parseMountUnit(bas) {

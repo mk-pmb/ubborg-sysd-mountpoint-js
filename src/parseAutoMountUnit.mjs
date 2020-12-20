@@ -1,6 +1,6 @@
 // -*- coding: utf-8, tab-width: 2 -*-
 
-import sysdWants from './sysdWants';
+import sysdWants from 'ubborg-sysd-wants';
 
 
 const fstabAutoTarget = 'local-fs.target';

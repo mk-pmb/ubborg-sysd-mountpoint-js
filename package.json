@@ -1,5 +1,5 @@
 { "name": "ubborg-sysd-mountpoint",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Easily declare systemd (auto)mountpoints.",
   "keywords": [
     "automount",
@@ -31,11 +31,12 @@
     "flatten": "^1.0.3",
     "objpop": "^0.2.1",
     "systemd-escape-pmb": "^0.1.1",
-    "typechecks-pmb": "^0.200620.4"
+    "typechecks-pmb": "^0.200620.4",
+    "ubborg-sysd-wants": "^0.0.1"
   },
   "devDependencies": {
     "clarify": "^2.1.0",
-    "equal-pmb": "^0.1.23",
+    "equal-pmb": "^0.1.24",
     "getown": "^1.0.0",
     "merge-options": "^1.0.1",
     "nodemjs": "^0.1.8",
