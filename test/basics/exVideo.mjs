@@ -22,12 +22,12 @@ const wantsDict = mergeOpt(exBackup.wantsDict, {
     path: 'dev-disk-by\\x2dlabel-video.device',
     pathSuf: '.wants/mnt-video.mount',
   },
-  autoMount: {
-    path: 'mnt-video',
-  },
+  autoMount: { path: 'mnt-video' },
   enableAutoMount: { pathSuf: '.wants/mnt-video.automount' },
 });
 
-const EX = tu.simpleTestSpec(import.meta, input, wantsDict);
+const EX = tu.simpleTestSpec(import.meta, input, wantsDict, {
+  idx: 4,
+});
 
 export default EX;

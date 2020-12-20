@@ -22,14 +22,12 @@ const wantsDict = mergeOpt(exBackup.wantsDict, {
     path: 'dev-disk-by\\x2duuid-dead\\x2dbeef.device',
     pathSuf: '.wants/mnt-dead\\x2dbeef.mount',
   },
-  autoMount: {
-    path: 'mnt-dead\\x2dbeef',
-  },
+  autoMount: { path: 'mnt-dead\\x2dbeef' },
   enableAutoMount: { pathSuf: '.wants/mnt-dead\\x2dbeef.automount' },
 });
 
 const EX = tu.simpleTestSpec(import.meta, input, wantsDict, {
-  idx: 2,
+  idx: 4,
 });
 
 export default EX;
