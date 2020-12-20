@@ -10,10 +10,11 @@ const fstabAutoTarget = 'local-fs.target';
 
 const EX = function parseAutoMountUnit(bas) {
   const { mustPop } = bas;
-  const amu = bas.ini({
+  const amEnabled = mustPop('bool', 'mountOnDemand', false);
+  const amUnit = bas.ini({
     path: bas.mptId,
     pathSuf: '.automount',
-  }, mustPop('bool', 'mountOnDemand', false) && {
+  }, amEnabled && {
     Unit: {
       Description: '',
     },
@@ -23,9 +24,8 @@ const EX = function parseAutoMountUnit(bas) {
   });
 
   return {
-    autoMountUnit: amu,
-    autoMountEnable: sysdWants(fstabAutoTarget,
-      mustPop('bool', 'mountOnDemand', false), amu),
+    autoMountUnit: amUnit,
+    autoMountEnable: sysdWants(fstabAutoTarget, amEnabled, amUnit),
   };
 };
 
