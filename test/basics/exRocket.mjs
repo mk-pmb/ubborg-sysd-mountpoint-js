@@ -54,11 +54,15 @@ const wantsDict = mergeOpt(exBackup.wantsDict, {
       },
     },
   },
-  enableAutoMount: { pathSuf: '.wants/opt-rocket.automount' },
+  enableAutoMount: {
+    ...tu.mtSym,
+    pathSuf: '.wants/opt-rocket.automount',
+    content: '/lib/systemd/system/opt-rocket.automount',
+  },
 });
 
 const EX = tu.simpleTestSpec(import.meta, input, wantsDict, {
-  idx: 3,
+  idx: 4,
 });
 
 export default EX;
