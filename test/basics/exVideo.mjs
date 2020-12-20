@@ -8,7 +8,7 @@ import exBackup from './exBackup';
 const input = 'L:video';
 
 const wantsDict = mergeOpt(exBackup.wantsDict, {
-  mptDir: '/mnt/video/',
+  mptDir: { path: '/mnt/video' },
   mount: {
     path: 'mnt-video',
     content: {
@@ -25,6 +25,7 @@ const wantsDict = mergeOpt(exBackup.wantsDict, {
   autoMount: {
     path: 'mnt-video',
   },
+  enableAutoMount: { pathSuf: '.wants/mnt-video.automount' },
 });
 
 const EX = tu.simpleTestSpec(import.meta, input, wantsDict);

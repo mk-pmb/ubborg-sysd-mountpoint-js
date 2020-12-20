@@ -25,7 +25,7 @@ const input = {
 };
 
 const wantsDict = mergeOpt(exBackup.wantsDict, {
-  mptDir: '/opt/rocket/',
+  mptDir: { path: '/opt/rocket' },
   mount: {
     path: 'opt-rocket',
     content: {
@@ -54,6 +54,7 @@ const wantsDict = mergeOpt(exBackup.wantsDict, {
       },
     },
   },
+  enableAutoMount: { pathSuf: '.wants/opt-rocket.automount' },
 });
 
 const EX = tu.simpleTestSpec(import.meta, input, wantsDict, {

@@ -5,7 +5,7 @@ import tu from '../testUtil';
 const input = 'backup';
 
 const wantsDict = {
-  mptDir: '/mnt/backup/',
+  mptDir: { path: '/mnt/backup', mimeType: 'dirOrMounted' },
   mount: {
     ...tu.mtUnit,
     path: 'mnt-backup',
@@ -31,6 +31,12 @@ const wantsDict = {
     ...tu.mtDel,
     path: 'mnt-backup',
     pathSuf: '.automount',
+  },
+  enableAutoMount: {
+    ...tu.mtSym,
+    ...tu.mtDel,
+    path: 'local-fs.target',
+    pathSuf: '.wants/mnt-backup.automount',
   },
 };
 

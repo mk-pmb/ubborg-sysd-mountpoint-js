@@ -8,7 +8,7 @@ import exBackup from './exBackup';
 const input = 'U:dead-beef';
 
 const wantsDict = mergeOpt(exBackup.wantsDict, {
-  mptDir: '/mnt/dead-beef/',
+  mptDir: { path: '/mnt/dead-beef' },
   mount: {
     path: 'mnt-dead\\x2dbeef',
     content: {
@@ -25,6 +25,7 @@ const wantsDict = mergeOpt(exBackup.wantsDict, {
   autoMount: {
     path: 'mnt-dead\\x2dbeef',
   },
+  enableAutoMount: { pathSuf: '.wants/mnt-dead\\x2dbeef.automount' },
 });
 
 const EX = tu.simpleTestSpec(import.meta, input, wantsDict, {
