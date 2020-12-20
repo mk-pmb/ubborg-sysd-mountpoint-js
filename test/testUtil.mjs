@@ -16,6 +16,10 @@ const tu = {
 
 };
 
+
+function objKeysSafeSorted(x) { return x && Object.keys(x).sort(); }
+
+
 Object.assign(tu, {
   mtUnit: { pathPre: tu.lss, mimeType: 'static_ini' },
   mtSym: { pathPre: tu.ess, mimeType: 'sym' },
@@ -45,8 +49,13 @@ Object.assign(tu, {
     const ds = getOwn(specs, detailIdx);
     const dw = getOwn(wants, detailIdx);
     try {
-      equal(getOwn(ds, 'content'), getOwn(dw, 'content'));
-      equal(ds, dw);
+      equal.named('cmp:detail[' + detailIdx + ']', function details() {
+        equal.named(':keys',
+          () => equal.lists(objKeysSafeSorted(ds), objKeysSafeSorted(dw)));
+        equal.named('.content',
+          () => equal(getOwn(ds, 'content'), getOwn(dw, 'content')));
+        equal(ds, dw);
+      });
       equal.lists(specs, wants);
     } catch (err) {
       let tr = tu.traceTest(err);
